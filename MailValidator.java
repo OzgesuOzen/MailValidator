@@ -5,7 +5,7 @@ public class MailValidator {
 
     private String input = "";
     private String pattern = "([a-zA-Z0-9]{1,})@([a-zA-Z]{1,})(\\.com)";
-    private String pattern2 = "[\\s]";
+    private String pattern2 = "[\\s]|[\\\\\\\\]";
 
     public MailValidator(String input){
         setInput(input);
@@ -15,7 +15,6 @@ public class MailValidator {
     public boolean check(){
         Pattern r = Pattern.compile(getPattern());
         Matcher m = r.matcher(getInput());
-
         Pattern r2 = Pattern.compile(getPattern2());
         Matcher m2 = r2.matcher(getInput());
 
@@ -27,7 +26,6 @@ public class MailValidator {
         }
 
     }
-
 
 
     public String getInput() {
